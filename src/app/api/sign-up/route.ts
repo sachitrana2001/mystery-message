@@ -29,7 +29,7 @@ export async function POST(request: Request) {
           { status: 500 }
         );
       } else {
-        const verifyCode = Math.floor(100000 + Math.random() * 900000).toString;
+        const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
         const expiryDate = new Date();
         expiryDate.setHours(expiryDate.getHours() + 1);
         existingUserVerifiedByEmail.verifyCode = verifyCode;
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         await existingUserVerifiedByEmail.save();
       }
     }
-    const verifyCode = Math.floor(100000 + Math.random() * 900000).toString;
+    const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
     if (existingUserVerifiedByEmail) {
       return Response.json(
         { success: false, message: "User already exists." },
